@@ -1,0 +1,15 @@
+You do not need to download test. It is a test. 
+
+*********************************************
+
+READ ME
+
+*********************************************
+
+The files should all work with Godot 4.4 and should be editable. Just open up the editor console and open the file.
+
+Any questions, please contact via the contact section of my website at: sites.google.com/view/alexgoddard/ 
+
+Feel free to use any of the assets or code in your projects, just be sure to credit me. 
+
+Do not publish this game as your own

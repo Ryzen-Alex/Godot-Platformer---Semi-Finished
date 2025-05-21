@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://s4fucvkp60w7"]
+
+[ext_resource type="Script" uid="uid://dwdlbusfkqdhy" path="res://Scences/coin_counter.gd" id="1_loq8v"]
+[ext_resource type="FontFile" uid="uid://ctqpsmac4iek0" path="res://Assets/fonts/PixelOperator8.ttf" id="1_wiadm"]
+[ext_resource type="Script" uid="uid://c6gso27jfh41g" path="res://Scripts/rich_text_label.gd" id="2_1f0md"]
+[ext_resource type="Texture2D" uid="uid://ukinfbskj1j8" path="res://Assets/sprites/Coin Still.png" id="4_loq8v"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_loq8v")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_top = -1.0
+offset_right = 18.0
+offset_bottom = 18.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("1_wiadm")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_1f0md")
+
+[node name="CoinStill" type="Sprite2D" parent="."]
+position = Vector2(-6, 7)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("4_loq8v")

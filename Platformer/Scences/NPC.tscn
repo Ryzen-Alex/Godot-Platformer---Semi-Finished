@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://cvkoof6poy55j"]
+
+[ext_resource type="Script" uid="uid://bp2bo1nrrayn3" path="res://Scripts/NPC.gd" id="1_1xjrt"]
+[ext_resource type="Texture2D" uid="uid://dyvxy5nb5pwe6" path="res://Assets/sprites/slime_green.png" id="2_7mrhw"]
+[ext_resource type="Texture2D" uid="uid://bjn771qq77sdy" path="res://Assets/8bit-retro-game-pixel-speech-bubble-balloon-icon-sticker-memo-keyword-planner-text-box-banner-png.webp" id="2_hscue"]
+[ext_resource type="FontFile" uid="uid://ctqpsmac4iek0" path="res://Assets/fonts/PixelOperator8.ttf" id="3_7mrhw"]
+[ext_resource type="FontFile" uid="uid://dme1b5cebhltb" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="4_hscue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hscue"]
+atlas = ExtResource("2_7mrhw")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3g8n"]
+atlas = ExtResource("2_7mrhw")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06ty2"]
+atlas = ExtResource("2_7mrhw")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk1f0"]
+atlas = ExtResource("2_7mrhw")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vxvbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hscue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3g8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06ty2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk1f0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[node name="Enemy" type="Node2D"]
+z_index = 1
+script = ExtResource("1_1xjrt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(0.104455, 0.100625)
+texture = ExtResource("2_hscue")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vxvbi")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(-5, 5)
+exclude_parent = false
+target_position = Vector2(32, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(5, 5)
+exclude_parent = false
+target_position = Vector2(-29, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Text" type="RichTextLabel" parent="."]
+offset_left = -23.0
+offset_top = -32.0
+offset_right = 29.0
+offset_bottom = -16.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_7mrhw")
+theme_override_fonts/mono_font = ExtResource("3_7mrhw")
+theme_override_fonts/italics_font = ExtResource("3_7mrhw")
+theme_override_fonts/bold_italics_font = ExtResource("4_hscue")
+theme_override_fonts/bold_font = ExtResource("4_hscue")
+theme_override_font_sizes/normal_font_size = 8
+text = "(E) to interact"
+fit_content = true
+scroll_active = false
